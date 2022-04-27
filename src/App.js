@@ -14,27 +14,43 @@ function App() {
   // traffic is complicated. It should be an array of strings that starts out as ['car', 'truck']
   const [traffic, setTraffic] = useState(['car', 'truck']);
 
+  const WIDTH_MODIFIER = 10;
+  const SIZE_MODIFIER = 1;
+
+  function handleLizardSizeUp(){
+    setLizardSize(lizardSize + SIZE_MODIFIER);
+  }
+  function handleLizardSizeDown(){
+    setLizardSize(lizardSize - SIZE_MODIFIER);
+  }
+  function handleAlienSizeUp(){
+    setAlienSize(alienSize + SIZE_MODIFIER);
+  }
+  function handleAlienSizeDown(){
+    setAlienSize(alienSize - SIZE_MODIFIER);
+  }
+
   return (
     <div className="App">
       <div className="fight">
         <div className="monster">
           {/* the width of the alien should be ten times whatever the alien size is in state */}
-          <img src="alien.png" width={20} />
+          <img src="alien.png" width={alienSize * WIDTH_MODIFIER} />
           <div className='buttons'>
             {/* when you click this button, the alien's size in state should go up by one */}
-            <button>Oh no! The alien is gobblin up all the electricity!</button>
+            <button onClick={handleAlienSizeUp}>Oh no! The alien is gobblin up all the electricity!</button>
             {/* when you click this button, the lizard's size in state should go down by one */}
-            <button >Amazing! The alien zapped the lizard!</button>
+            <button onClick={handleLizardSizeDown}>Amazing! The alien zapped the lizard!</button>
           </div>
         </div>
         <div className="monster">
           {/* the width of the lizard should be ten times whatever the alien size is in state */}
-          <img src="lizard.png" width={20} />
+          <img src="lizard.png" width={lizardSize * WIDTH_MODIFIER} />
           <div className="buttons">
             {/* when you click this button, the lizard's size in state should go up by one */}
-            <button>Yegads! The lizard is ramping up to its final form!</button>
+            <button onClick={handleLizardSizeUp}>Yegads! The lizard is ramping up to its final form!</button>
             {/* when you click this button, the alien's size in state should go up by one */}
-            <button>Oh my! The lizard chomped down on the alien!</button>
+            <button onClick={handleAlienSizeDown}>Oh my! The lizard chomped down on the alien!</button>
           </div>
         </div>
       </div>
