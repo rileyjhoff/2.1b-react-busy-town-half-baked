@@ -17,19 +17,6 @@ function App() {
   const WIDTH_MODIFIER = 10;
   const SIZE_MODIFIER = 1;
 
-  function handleLizardSizeUp(){
-    setLizardSize(lizardSize + SIZE_MODIFIER);
-  }
-  function handleLizardSizeDown(){
-    setLizardSize(lizardSize - SIZE_MODIFIER);
-  }
-  function handleAlienSizeUp(){
-    setAlienSize(alienSize + SIZE_MODIFIER);
-  }
-  function handleAlienSizeDown(){
-    setAlienSize(alienSize - SIZE_MODIFIER);
-  }
-
   return (
     <div className="App">
       <div className="fight">
@@ -38,9 +25,9 @@ function App() {
           <img src="alien.png" width={alienSize * WIDTH_MODIFIER} />
           <div className='buttons'>
             {/* when you click this button, the alien's size in state should go up by one */}
-            <button onClick={handleAlienSizeUp}>Oh no! The alien is gobblin up all the electricity!</button>
+            <button onClick={() => setAlienSize(alienSize + SIZE_MODIFIER)}>Oh no! The alien is gobblin up all the electricity!</button>
             {/* when you click this button, the lizard's size in state should go down by one */}
-            <button onClick={handleLizardSizeDown}>Amazing! The alien zapped the lizard!</button>
+            <button onClick={() => setLizardSize(lizardSize - SIZE_MODIFIER)}>Amazing! The alien zapped the lizard!</button>
           </div>
         </div>
         <div className="monster">
@@ -48,9 +35,9 @@ function App() {
           <img src="lizard.png" width={lizardSize * WIDTH_MODIFIER} />
           <div className="buttons">
             {/* when you click this button, the lizard's size in state should go up by one */}
-            <button onClick={handleLizardSizeUp}>Yegads! The lizard is ramping up to its final form!</button>
+            <button onClick={() => setLizardSize(lizardSize + SIZE_MODIFIER)}>Yegads! The lizard is ramping up to its final form!</button>
             {/* when you click this button, the alien's size in state should go up by one */}
-            <button onClick={handleAlienSizeDown}>Oh my! The lizard chomped down on the alien!</button>
+            <button onClick={() => setAlienSize(alienSize - SIZE_MODIFIER)}>Oh my! The lizard chomped down on the alien!</button>
           </div>
         </div>
       </div>
