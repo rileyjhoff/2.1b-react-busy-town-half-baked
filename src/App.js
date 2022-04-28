@@ -3,8 +3,8 @@ import VehicleList from './VehicleList';
 import TrafficLight from './TrafficLight';
 import { useState } from 'react';
 
-const initialDate = new Date();
-const initialTime = (initialDate.getTime()) / 1000;
+// const initialDate = new Date();
+// const initialTime = (initialDate.getTime()) / 1000;
 
 function App() {
   // track the following state with a few useState hooks:
@@ -20,12 +20,11 @@ function App() {
   const WIDTH_MODIFIER = 10;
   const SIZE_MODIFIER = 1;
 
-  const currentDate = new Date;
-  const currentTime = Math.floor((currentDate.getTime()) / 1000 - initialTime);
+  // const currentDate = new Date;
+  // const currentTime = Math.floor((currentDate.getTime()) / 1000 - initialTime);
 
   return (
     <div className="App">
-      {console.log(currentTime)}
       <div className="fight">
         <div className="monster">
           {/* the width of the alien should be ten times whatever the alien size is in state */}
